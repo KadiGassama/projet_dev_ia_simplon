@@ -7,4 +7,26 @@ figure = px.pie(données, values='qte', names='region', title='quantité vendue 
 
 figure.write_html('ventes-par-region.html')
 
+figure2 = px.pie(
+    données,
+    values='qte',
+    names='produit',
+    title='quantité vendue par produit'
+)
+
+figure2.write_html('ventes-par-produit.html')
+
+données['ca'] = données['qte'] * données['prix']
+
+figure3 = px.pie(
+    données,
+    values='ca',
+    names='produit',
+    title='chiffre d\'affaires par produit'
+)
+
+figure3.write_html('chiffre-affaires-par-produit.html')
+
 print('ventes-par-région.html généré avec succès !')
+print('ventes-par-produit.html généré avec succès !')
+print('chiffre-affaires-par-produit.html généré avec succès !')
